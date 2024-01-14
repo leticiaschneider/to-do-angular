@@ -1,0 +1,40 @@
+.form-container {
+    width: 100%;
+
+    .buttons-box {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+
+        .btn {
+            padding: 5px 10px;
+            white-space: nowrap;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .buttons-icon-box {
+        display: flex;
+        justify-content: end;
+
+        .btn:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &.error {
+
+        input {
+            border: 1px solid red;
+            margin-bottom: 0;
+        }
+
+        p {
+            color: red;
+            font-size: 14px;
+        }
+    }
+}

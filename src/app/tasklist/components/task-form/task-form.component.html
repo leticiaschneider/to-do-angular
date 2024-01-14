@@ -1,0 +1,12 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="title" placeholder="Task Name" maxlength="50">
+    <textarea type="text" autoResize formControlName="description" placeholder="Description" maxlength="100"></textarea>
+    <div class="new-task-buttons">
+        <button type="button" class="btn btn-neutral btn-small" (click)="resetForm()">
+            <app-svg-icon name="x" color="black" width="13" height="13"></app-svg-icon>
+        </button>
+        <button type="submit" class="btn btn-secondary btn-small" [disabled]="formGroup.invalid">
+            <app-svg-icon name="next" color="black" width="24" height="24"></app-svg-icon>
+        </button>
+    </div>
+</form>

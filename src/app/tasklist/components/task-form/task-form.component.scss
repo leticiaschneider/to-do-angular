@@ -1,0 +1,32 @@
+form {
+    display: grid;
+
+    input[type=text],
+    textarea {
+        border: none;
+        font-size: 16px;
+        line-height: 20px;
+        padding: 5px;
+        height: 20px;
+        border-radius: 5px;
+        outline: none;
+        background-color: transparent;
+        resize: none;
+        overflow-y: hidden;
+
+        &:first-child {
+            margin-bottom: 5px;
+        }
+    }
+
+    .new-task-buttons {
+        display: flex;
+        justify-content: end;
+    }
+
+    .count-descripton {
+        margin-left: 8px;
+        font-size: 12px;
+    }
+
+}

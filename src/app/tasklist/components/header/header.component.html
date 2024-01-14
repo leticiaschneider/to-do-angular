@@ -1,0 +1,21 @@
+<section class="header-section" role="banner">
+    <div class="header-logo">
+        <img src="assets/images/logo.svg" alt="Company Logo" role="img">
+    </div>
+
+    <div class="search-box">
+        <input type="text" class="searchTerm" [(ngModel)]="textSearch" (input)="emitTextSearch()" placeholder="What are you looking for?" aria-label="Search">
+        <button type="submit" class="searchButton" (click)="emitTextSearch()" aria-label="Submit Search">
+            <app-svg-icon name="search" color="white" width="18"></app-svg-icon>
+        </button>
+    </div>
+
+    <div class="toggle-button" role="group" aria-labelledby="toggle label">
+        <input type="checkbox" id="toggle" class="toggleCheckbox" [(ngModel)]="toggleValue" (click)="toggle()" [attr.aria-checked]="toggleValue">
+        <label for="toggle" class='toggleContainer' id="toggleLabel">
+            <div role="presentation">List</div>
+            <div role="presentation">Board</div>
+        </label>
+    </div>
+</section>
+

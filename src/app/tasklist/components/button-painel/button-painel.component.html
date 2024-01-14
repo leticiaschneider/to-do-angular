@@ -1,0 +1,10 @@
+<div class="button-painel" (click)="onDivClick($event)">
+    <button type="button" tabindex="-1" (click)="openEditTask()">
+        <app-svg-icon name="pencil" color="black" width="18" height="19"></app-svg-icon>
+        <div class="button-text">Edit</div>
+    </button>
+    <button type="button" role="menuitem" data-destructive="true" tabindex="-1" (click)="openModal()">
+        <app-svg-icon name="trash" color="black" width="18" height="19"></app-svg-icon>
+        <div class="button-text">Delete</div>
+    </button>
+</div>

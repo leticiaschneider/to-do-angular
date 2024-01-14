@@ -1,0 +1,29 @@
+.button-painel {
+    width: 200px;
+    display: grid;
+    border-radius: 5px;
+    background-color: var(--white-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+    button {
+        display: flex;
+        align-items: center;
+        width: 98%;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        background-color: var(--white-color);
+        padding: 5px;
+        border-radius: 5px;
+        margin: 2px;
+        cursor: pointer;
+
+        .button-text {
+            margin-left: 5px;
+        }
+
+        &:hover {
+            background-color: var(--neutral-lighter-color);
+        }
+    }
+}

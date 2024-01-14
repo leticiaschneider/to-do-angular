@@ -1,0 +1,35 @@
+<app-header (valueToggleButton)="onValueToggleButton($event)"
+    (textSearchChange)="onTextSearchChange($event)"></app-header>
+
+<div class="task-container" [class.list-style]="toggleValue === 'list'" cdkDropListGroup>
+    <app-section [view]="toggleValue" *ngFor="let section of sectionTasks" [title]="section.title"
+        [status]="section.status" [tasksQuantity]="section.tasks.length" (deleteSectionEvent)="deleteSection($event)"
+        cdkDropList [cdkDropListData]="section.tasks" (cdkDropListDropped)="drop($event)">
+
+        <app-card [tasks]="section.tasks" [status]="section.status" [textSearch]="textSearch"
+            [view]="toggleValue"></app-card>
+
+        <button class="btn btn-new" *ngIf="!section.showFormAddTask" (click)="showFormTask(section)">
+            <span>+</span>
+            new
+        </button>
+
+        <div class="new-task-container" *ngIf="section.showFormAddTask">
+            <app-task-form [formGroup]="newTaskForm"
+                (formSubmit)="addTask(section.status)"
+                (formCancel)="section.showFormAddTask = false"></app-task-form>
+        </div>
+
+    </app-section>
+
+    <div class="new-section">
+        <div class="new-section-button" *ngIf="!showFormAddSection" (click)="showFormAddSection = !showFormAddSection">
+            <app-svg-icon name="section" color="#BE8F6E" width="18" height="18"></app-svg-icon>
+            <span>Add section</span>
+        </div>
+
+        <app-section-form [form]="sectionForm" [showForm]="showFormAddSection" (formSubmit)="addSection()" type="new"
+            (formToggle)="showFormAddSection = !showFormAddSection">
+        </app-section-form>
+    </div>
+</div>

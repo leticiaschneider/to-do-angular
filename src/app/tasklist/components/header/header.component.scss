@@ -1,0 +1,131 @@
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .header-logo {
+        img {
+            width: 100px;
+        }
+    }
+
+    .search-box {
+        display: flex;
+
+        .searchTerm, .searchButton {
+            border: 1px solid var(--very-light-gray-color);
+        }
+
+        .searchTerm {
+            width: 100%;
+            font-size: 16px;
+            line-height: 20px;
+            border-right: none;
+            padding: 5px;
+            height: 20px;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            padding: 10px 10px;
+        }
+
+        .searchButton {
+            width: 40px;
+            border-left: none;
+            background-color: var(--neutral-lightest-color);
+            text-align: center;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+    }
+
+
+    .toggleContainer {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: fit-content;
+        border: 3px solid var(--primary-light-color);
+        border-radius: 5px;
+        background: var(--primary-light-color);
+        font-weight: bold;
+        color: var(--primary-light-color);
+        cursor: pointer;
+
+        div {
+            padding: 6px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            left: 0%;
+            border-radius: 5px;
+            background: white;
+            transition: all 0.3s;
+        }
+    }
+
+    .toggleCheckbox {
+        display: none;
+
+        +.toggleContainer {
+            div {
+                &:first-child {
+                    color: var(--primary-light-color);
+                    transition: color 0.3s;
+                }
+
+                &:last-child {
+                    color: white;
+                    transition: color 0.3s;
+                }
+            }
+
+        }
+
+        &:checked {
+            +.toggleContainer {
+                div {
+                    &:first-child {
+                        color: white;
+                        transition: color 0.3s;
+                    }
+
+                    &:last-child {
+                        color: var(--primary-light-color);
+                        transition: color 0.3s;
+                    }
+                }
+
+                &:before {
+                    left: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .header-section {
+        flex-wrap: wrap;
+        align-content: center;
+        align-self: center;
+        justify-content: center;
+        grid-gap: 20px;
+    }
+
+    .search-box {
+        order: 3;
+    }
+
+    .toggle-button {
+        order: 2;
+    }
+}

@@ -1,0 +1,103 @@
+.task-section {
+    position: relative;
+    padding: 17px;
+    border-radius: 5px;
+    margin: 2px 0px 3px 2px;
+    margin-bottom: 40px;
+    width: 300px;
+
+    &.list-style {
+        width: 100%;
+
+        .task-section-header {
+            border-bottom: 1px solid var(--very-light-gray-color);
+            padding-bottom: 5px;
+
+            &.formVisible::ng-deep {
+                display: initial;
+
+                input {
+                    width: 98%;
+                }
+            }
+        }
+
+        .button-painel {
+            top: 40px;
+            right: -7%;
+            width: 150px;
+        }
+    }
+
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    }
+
+    .task-section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .headre-title {
+            display: flex;
+            align-items: center;
+
+            .txt_quantity {
+margin-left: 5px;
+            }
+        }
+
+        .button-painel {
+            position: absolute;
+            top: 40px;
+            right: -21%;
+            z-index: 1001;
+            width: 200px;
+            display: grid;
+            border-radius: 5px;
+            background-color: var(--white-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+            button {
+                display: flex;
+                align-items: center;
+                width: 98%;
+                font-size: 16px;
+                border: none;
+                outline: none;
+                background-color: var(--white-color);
+                padding: 5px;
+                border-radius: 5px;
+                margin: 2px;
+                cursor: pointer;
+
+                .button-text {
+                    margin-left: 5px;
+                }
+
+                &:hover {
+                    background-color: var(--neutral-lighter-color);
+                }
+            }
+        }
+
+        &.formVisible {
+            display: initial;
+        }
+    }
+
+    app-button-painel {
+        position: absolute;
+        top: 42px;
+        right: -81px;
+        z-index: 1001;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .task-section {
+        &.list-style {
+            width: initial;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+
+
+<div class="board-card" *ngFor="let task of tasks | filter : textSearch; let i = index" cdkDrag [class.list-style]="view === 'list'">
+    <div class="task-item-drag" *ngIf="view === 'list'">
+        <app-svg-icon name="drag" color="#999999" width="18" height="16"></app-svg-icon>
+    </div>
+
+    <div class="board-card-top">
+        <label class="checkbox-container" *ngIf="!task.showEditFrom">
+            <span> {{ task.title }} </span>
+            <input type="checkbox" class="checkbox-input" [(ngModel)]="task.checked" />
+            <span class="check-mark"></span>
+        </label>
+
+        <div class="more-info" (click)="togglePainelVisibility(i);" *ngIf="!task.showEditFrom">
+            <app-svg-icon name="circles" color="black" width="18" height="4"></app-svg-icon>
+        </div>
+
+        <div class="task-edit-container" *ngIf="task.showEditFrom">
+            <app-task-form [formGroup]="editTaskForm"
+                (formSubmit)="editTask(i)"
+                (formCancel)="task.showEditFrom = !task.showEditFrom"></app-task-form>
+        </div>            
+
+        <app-button-painel *ngIf="task.showPainel" (editClick)="openEditTask(i)"
+            (deleteClick)="openModal(i)"></app-button-painel>
+    </div>
+
+    <div class="board-card-body" *ngIf="!task.showEditFrom">
+        <span class="task-description"> {{ task.description }} </span>
+    </div>
+</div>
+
+<app-modal *ngIf="modalOpen" [isOpen]="modalOpen" (closed)="closeModal()">
+    <div class="modal-header">
+        <h3>Delete task?</h3>
+    </div>
+
+    <div class="modal-body">
+        <p>Are you sure you want to delete <span> {{ taskToDelete.title }} </span>?</p>
+    </div>
+
+    <div class="modal-bottom">
+        <button class="btn btn-neutral btn-medium" (click)="modalOpen = !modalOpen">Cancel</button>
+        <button class="btn btn-secondary btn-medium" (click)="deleteTask()">Delete</button>
+    </div>
+</app-modal>

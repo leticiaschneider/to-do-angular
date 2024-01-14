@@ -1,0 +1,20 @@
+<div class="form-container" *ngIf="showForm" [class.error]="form.get('sectionName')?.hasError('nameExists')">
+    <form [formGroup]="form" (ngSubmit)="formSubmit.emit()">
+        <input type="text" formControlName="sectionName" (input)="checkIfTitleExists()" placeholder="Name this section" maxlength="20">
+        <p *ngIf="form.get('sectionName')?.hasError('nameExists')">A column with this name already exists.</p>
+        <div class="buttons-box" *ngIf="type === 'new'; else buttonsIcon">
+            <button type="button" class="btn btn-neutral" (click)="formToggle.emit(); form.reset()">Cancel</button>
+            <button type="submit" class="btn btn-secondary" [disabled]="form.invalid">Submit</button>
+        </div>
+        <ng-template #buttonsIcon>
+            <div class="buttons-icon-box" *ngIf="type === 'edit'">
+                <button type="button" class="btn btn-neutral btn-small" (click)="formToggle.emit(); form.reset()">
+                    <app-svg-icon name="x" color="black" width="13" height="13"></app-svg-icon>
+                </button>
+                <button type="submit" class="btn btn-secondary btn-small" [disabled]="form.invalid">
+                    <app-svg-icon name="next" color="black" width="24" height="24"></app-svg-icon>
+                </button>
+            </div>
+          </ng-template>
+    </form>
+</div>

@@ -1,0 +1,38 @@
+<div class="task-section" [class.list-style]="view === 'list'">
+    <div class="task-section-header" [class.formVisible]="showFormEditSection">
+
+        <div class="headre-title">
+            <h3 class="title" *ngIf="!showFormEditSection"> {{ title }} </h3>
+            <p class="txt_quantity"> {{ tasksQuantity }} </p>
+        </div>
+
+        <app-section-form [form]="sectionForm" [showForm]="showFormEditSection" (formSubmit)="editSection()" type="edit"
+            (formToggle)="showFormEditSection = !showFormEditSection" [editedSectionName]="title">
+        </app-section-form>
+
+        <div class="more-info" (click)="togglePainelVisibility();" *ngIf="!showFormEditSection"
+            (click)="onDivClick($event)">
+            <app-svg-icon name="circles" color="black" width="18" height="4"></app-svg-icon>
+        </div>
+
+        <app-button-painel *ngIf="togglePainel" (editClick)="openEditSection()"
+            (deleteClick)="openModal()"></app-button-painel>
+    </div>
+    <ng-content></ng-content>
+</div>
+
+<app-modal *ngIf="modalOpen" [isOpen]="modalOpen" (closed)="closeModal()">
+    <div class="modal-header">
+        <h3>Delete section?</h3>
+    </div>
+
+    <div class="modal-body">
+        <p>Are you sure you want to delete <span> {{ title }} </span> with its <span> {{ tasksQuantity }} </span> task?
+        </p>
+    </div>
+
+    <div class="modal-bottom">
+        <button class="btn btn-neutral btn-medium" (click)="modalOpen = !modalOpen">Cancel</button>
+        <button class="btn btn-secondary btn-medium" (click)="deleteSection()">Delete</button>
+    </div>
+</app-modal>
