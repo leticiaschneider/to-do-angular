@@ -21,7 +21,7 @@ You can view a live demo of the app [here](http://leticiaschneider.github.io/to-
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/angular-todo.git`
+1. Clone the repository: `git clone https://github.com/leticiaschneider/to-do-angular.git`
 2. Navigate to the project folder: `cd angular-todo`
 3. Install dependencies: `npm install`
 4. Run the app: `ng serve`
@@ -32,4 +32,4 @@ Visit `http://localhost:4200/` in your browser to see the app in action.
 
 Letícia Araújo Schneider - @leehschneider - leticia.schneider@gmail.com
 
-Project Link: https://github.com/leticiaschneider/login-with-jwt
+Project Link: https://github.com/leticiaschneider/to-do-angular
