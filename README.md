@@ -30,6 +30,6 @@ Visit `http://localhost:4200/` in your browser to see the app in action.
 
 ## ✨ Contact
 
-Letícia Araújo Schneider - @leehschneider - leticia.schneider@gmail.com
+Letícia Araújo Schneider - leticia.schneider@gmail.com
 
 Project Link: https://github.com/leticiaschneider/to-do-angular
